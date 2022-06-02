@@ -71,6 +71,7 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(urdf REQUIRED)
 find_package(visualization_msgs REQUIRED)
+find_package(orocos_kdl REQUIRED)
 
 set(rviz_default_plugins_headers_to_moc
   include/rviz_default_plugins/displays/axes/axes_display.hpp
@@ -226,6 +227,8 @@ target_link_libraries(rviz_default_plugins PUBLIC
   rviz_ogre_vendor::OgreMain
   rviz_ogre_vendor::OgreOverlay
 )
+
+target_link_libraries(rviz_default_plugins PUBLIC orocos-kdl)
 
 # Causes the visibility macros to use dllexport rather than dllimport,
 # which is appropriate when building the dll but not consuming it.
